@@ -1,0 +1,13 @@
+language: java
+services:
+- postgresql
+before_script:
+- psql -c 'create database invoicify;' -U postgres
+- psql -c "CREATE USER testuser WITH PASSWORD 'admin';" -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: umRi3Q6Ae4kVWv/J2oZp5tKVX/HBefqdmNUCsibdaAS1XhuYdTFILLJHCoIXjrBDItWVOlw7HEMuFIucA//iR8YkwUv0Ar3j4fNbxK2v6H2GEP4Zh2NvMidCEI24Zrx5LLlwqyZkTl6TnG+v4EYUWDneGxTwHSf+SNFdp+l6plcweuhSL99CPwPyHQOLCI7/JwICEhZmfA2D6iO/BIPI1/7Ls91de+TUX5Sbi3vTTFhx/e9yb0oalhJBimwB3ZUDFU0unYaz8odV6ohIQQrCuS6kIwBWcNfFU04iu4nuVL2lEWVLONAi1gxGrFIxZGIaVbGvTD8EUM3ELp8fOXGD7p+J+YnEGrOut8EiYjEKlEguG6sbeSz5juXBf5Xri6YVWZ0OjNR28qgj3kGkHRQCmorMleUhd9nFhL9HAWs0B2NDT7cy0k9/8YJ6Zsnp59MsW/WQbRWx9AXg1AFe8ceArNVkojC72yKP8YN2IADyKsKtCvPV/sTdse/bj74x7yh9NSW4x329ilSome1+6CdOuIW4gFLkpJrexMidQnoBbliri7sF46Goz+D54ha69CvK1P1h2CazcUHxrss1xvd/eR9OlhIgEcWfRwwZCyW0yIWapAsANjaTeziGO6x5RAggCuWSs55JurR9OIhSiiaYn3V1/4F/N6IYj5dbGDxqSZc=
+  app: ally-invoicify
+  on:
+    repo: adam-tyler/invoicify-frontend-final
