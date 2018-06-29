@@ -13,7 +13,6 @@ public class InvoicifyApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		fail();
 	}
 
 }
